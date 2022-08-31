@@ -79,15 +79,9 @@ fi
 }
 
 Get_Steamcmd(){
-echo "获取Steam命令行版客户端（从荒年的国内服务器加速下载）"
-mkdir /steamcmd/
-cd /steamcmd/
-wget https://wtrace3zh.com/tools/steamcmd.tar.gz
-tar -zxvf steamcmd.tar.gz
-rm -rf steamcmd.tar.gz
+
 
 if [ ! -f "/steamcmd/steamcmd.sh" ];then
- echo -e "${RED_COLOR}啊哦，从荒年的国内服务器加速获取Steamcmd失败，正在从官方服务器获取。${RES}"
  echo -e "${RED_COLOR}注意！中国大陆境内服务器使用官方服务器获取可能会导致下载失败 ${RES}"
 	wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 	tar -zxvf steamcmd_linux.tar.gz
