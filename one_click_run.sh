@@ -45,6 +45,8 @@ if [ $DISTRO = "Debian" ];then
 	apt-get install wget -y
 	apt-get install gzip -y
 	apt-get install tar -y
+	apt-get install unzip -y
+	apt-get install steamcmd libssl1.1:i386 zlib1g:i386 -y
 	
 elif [ $DISTRO = "Redhat" ];then
 	echo "正在安装服务端程序必备运行库，请确保您拥有高级权限或以root用户运行此脚本"
@@ -56,6 +58,8 @@ elif [ $DISTRO = "Redhat" ];then
 	yum install wget -y
 	yum install gzip -y
 	yum install tar -y
+	yum install unzip -y
+	yum install steamcmd libssl1.1:i386 zlib1g:i386 -y
 
 else
 	echo "脚本暂不支持你目前使用的发行版，或许服务端仍适用于你的系统。如果你的发行版为Debian系或Redhat系，请在github内提交issue"
@@ -81,7 +85,7 @@ fi
 Get_Steamcmd(){
 
 
-if [ ! -f "/steamcmd.sh" ];then
+if [ ! -f "steamcmd.sh" ];then
  echo -e "${RED_COLOR}注意！中国大陆境内服务器使用官方服务器获取可能会导致下载失败 ${RES}"
 	wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 	tar -zxvf steamcmd_linux.tar.gz
@@ -151,7 +155,10 @@ elif [ $steam_appid = "17705" ];then
 	tar -zxvf mmsource-1.11.0-git1144-linux.tar.gz
 	rm -rf sourcemod-1.10.0-git6502-linux.tar.gz mmsource-1.11.0-git1144-linux.tar.gz
 	echo "叛乱2 Sourcemod与Metamod服务器插件系统部署成功！"
-	
+		
+elif [ $steam_appid = "276060" ];then
+	cd $install_path
+	echo "Sven Co-op 部署成功！"
 else
 	echo "脚本暂不支持本游戏的插件系统自动部署，请手动部署Sourcemod与Metamod。或在Github页面issues中提交对此游戏的支持"
 	
@@ -220,6 +227,8 @@ echo "+------+----------+"
 echo "|232250|  TF2     |"
 echo "+------+----------+"
 echo "|17705 |  叛乱    |"
+echo "+------+----------+"
+echo "|276060|Sven Co-op|"
 echo "+------+----------+"
 echo "其他游戏服务端请访问https://developer.valvesoftware.com/wiki/Steam_Application_IDs 来获取服务端Appid"
 
