@@ -81,15 +81,12 @@ fi
 Get_Steamcmd(){
 
 
-if [ ! -f "/steamcmd/steamcmd.sh" ];then
+if [ ! -f "/steamcmd.sh" ];then
  echo -e "${RED_COLOR}注意！中国大陆境内服务器使用官方服务器获取可能会导致下载失败 ${RES}"
 	wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 	tar -zxvf steamcmd_linux.tar.gz
 	rm -rf steamcmd_linux.tar.gz
-
- else
- 
- echo "Steamcmd部署成功！"
+    echo "Steamcmd部署成功！"
  
 fi
 
@@ -103,9 +100,8 @@ fi
 }
 
 install_game(){
-cd /steamcmd/
 chmod 777 steamcmd.sh
-./steamcmd.sh +login anonymous +force_install_dir $install_path +app_update $steam_appid validate +quit
+.steamcmd.sh +login anonymous +force_install_dir $install_path +app_update $steam_appid validate +quit
 
 }
 
