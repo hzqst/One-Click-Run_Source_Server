@@ -36,7 +36,7 @@ System_check(){
 	
 if [ $DISTRO = "Debian" ];then
 	echo "正在安装服务端程序必备运行库，请确保您拥有高级权限或以root用户运行此脚本"
-	sleep 5
+	sleep 1
 	apt update -y
 	apt upgrade -y
 	apt-get install lib32stdc++6 -y
@@ -48,7 +48,7 @@ if [ $DISTRO = "Debian" ];then
 	
 elif [ $DISTRO = "Redhat" ];then
 	echo "正在安装服务端程序必备运行库，请确保您拥有高级权限或以root用户运行此脚本"
-	sleep 5
+	sleep 1
 	yum update -y
 	yum install glibc.i686 libstdc++.i686 -y
 	yum install glibc libstdc++ -y
@@ -101,7 +101,7 @@ fi
 
 install_game(){
 chmod 777 steamcmd.sh
-.steamcmd.sh +login anonymous +force_install_dir $install_path +app_update $steam_appid validate +quit
+./steamcmd.sh +login anonymous +force_install_dir $install_path +app_update $steam_appid validate +quit
 
 }
 
